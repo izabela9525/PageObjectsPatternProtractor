@@ -21,6 +21,19 @@ describe("Automating Customer Login functionality", function () {
         element(by.binding("message")).getText().then(function (text) {
             console.log(text);
         });
+        expect(element(by.binding("message")).getText()).toEqual("Deposit Successful");
+    });
 
+    it("Validate Withdrawl", function () {
+//button Withdrawl
+        element(by.xpath("/html/body/div[3]/div/div[2]/div/div[3]/button[3]")).click();
+        //Input Amount to be Withdrawl
+        element(by.xpath("/html/body/div[3]/div/div[2]/div/div[4]/div/form/div/input")).sendKeys(("1000"));
+        element(by.css(".btn.btn-default")).click();
+
+        element(by.binding("message")).getText().then(function (text) {
+            console.log(text);
+        });
+        expect(element(by.binding("message")).getText()).toEqual("Transaction successful");
     });
 })
